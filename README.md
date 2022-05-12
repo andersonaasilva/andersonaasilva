@@ -1,5 +1,5 @@
-- 👋 Hi, I’m @andersonaasilva
-- 👀 I’m a researcher and I'm making data available to my classmates.
+- 👋 Hi, I'm Anderson.
+- 👀 I am a researcher and I am making some data available to my students.
 - anderson@uol.com.br
 
 - Oi eu sou o Anderson. Sou pesquisador e estou disponibilizando alguns dados para os meus alunos.
