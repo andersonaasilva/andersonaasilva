@@ -14,11 +14,12 @@ mkdir /pi
 chmod 777 /pi
 cd /pi
 
-# bloqueia conexoes root no ssh
-sed -i 's/PermitRootLogin no/#PermitRootLogin no/' /etc/ssh/sshd_config
-sed -i 's/PermitRootLogin yes/#PermitRootLogin yes/' /etc/ssh/sshd_config
-echo PermitRootLogin no >> /etc/ssh/sshd_config
-systemctl restart sshd.service
+# bloqueia conexoes root no ssh 
+#(NAO PRECISA, PORQUE EVITA A QUEBRA DA SENHA DE RROT NO MEDUSA E NO XHYDRA)
+#sed -i 's/PermitRootLogin no/#PermitRootLogin no/' /etc/ssh/sshd_config
+#sed -i 's/PermitRootLogin yes/#PermitRootLogin yes/' /etc/ssh/sshd_config
+#echo PermitRootLogin no >> /etc/ssh/sshd_config
+#systemctl restart sshd.service
 
 # apaga usuarios
 userdel fulano
@@ -63,7 +64,7 @@ sed -i 's/root:x:/root:$6$1.b0mEeJ$FqqUy89xo9TkKUAEm7zXrJM\/wlReSJRwxbmZPTJJCNP7
 sed -i 's/root::/root:$6$1.b0mEeJ$FqqUy89xo9TkKUAEm7zXrJM\/wlReSJRwxbmZPTJJCNP7Zvd3Ww7plfZb6e74SSuXKCL3KuzvMwnU6VkQwoYat.:/' /etc/shadow
 # azureuser
 #sed -i 's/azureuser:!!:/#azureuser:$6$TM0dWH5SufUDCVSS$WW1.nMf7Gd3QbO1zSfrjHAjfJiHIpBnCoCYsAudbUH9E7uBvXuw92NY2UEyTTBcurQA49ka5oMdIIq5FRckSl1:/' /etc/shadow
-sed -i 's/azureuser::/#azureuser:$6$TM0dWH5SufUDCVSS$WW1.nMf7Gd3QbO1zSfrjHAjfJiHIpBnCoCYsAudbUH9E7uBvXuw92NY2UEyTTBcurQA49ka5oMdIIq5FRckSl1:/' /etc/shadow
+sed -i 's/azureuser::/azureuser:$6$TM0dWH5SufUDCVSS$WW1.nMf7Gd3QbO1zSfrjHAjfJiHIpBnCoCYsAudbUH9E7uBvXuw92NY2UEyTTBcurQA49ka5oMdIIq5FRckSl1:/' /etc/shadow
 # outros usuarios
 sed -i 's/fulano:!!:/fulano:$6$Ia1yYU0R$Lf7Z3aYy1WfSQL5Ir9wLHKDzqVdzDiGvh22ATcKVywGbW.pCdu3AXWq8RkygG6959a4Sr8KLoBYeCGPaYgxxu0:/' /etc/shadow
 sed -i 's/beltrano:!!:/beltrano:$6$A.KQfnHB$8fABskX\/kX2Q9r8KaDxQ74N5sq9sBWQH6vpr1yV6GaRUzY6A4h4IFlXlJgtxf2MrTbdazdYQlOk22SZZSov7B0:/' /etc/shadow
